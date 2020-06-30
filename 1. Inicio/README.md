@@ -16,7 +16,7 @@ Para instalar uma versao especifica, basta:
 $ apt-get install postgresql-VERSAO
 ```
 
-Este guia foi feito com base na versao 11 de PostgreSQL.
+Este guia foi feito com base na versao 11.8 do PostgreSQL.
 
 ## 1.2. Arquitetura
 Antes de mais nada, é preciso conhecer um pouco da arquitetura de PostgreSQL.
@@ -59,10 +59,51 @@ $ /usr/local/pgsql/bin/createdb meu_banco
 > Nota: O caminho para o servidor pode ser diferente. Entre em contato o administrador da sua rede ou verifique as instruções de instalação para corrigir o problema.
 
 Se você não quiser mais usar seu banco de dados, poderá excluí-lo. O processo é tão simples quanto criá-lo, basta:
+
 ```bash
 $ dropdb meu_banco
 ```
 > Nota: Essa ação remove fisicamente todos os arquivos associados ao banco de dados e não pode ser desfeita; portanto, deve ser feito com muito cuidado.
 
 ## 1.4. Acesso a um banco de dados
+Agora que o banco de dados foi criado, podemos acessa-lo!
 
+Para isso, usaremos o comando ```psql``` que atuará como nosso cliente e permitirá a execução de comandos SQL em nosso servidor.
+> Nota: É possível usar ferramentas gráficas como [pgAdmin](https://www.pgadmin.org/) ou [Postico](https://eggerapps.at/postico/) para tornar a experiência mais intuitiva, neste guia, seguiremos com o terminal.
+
+Digite o seguinte comando:
+
+```bash
+$ psql meu_banco
+```
+> Nota: Se você não especificar o nome do banco de dados, o psql usará o nome da sua conta de usuário por padrão.
+
+Você deve obter o seguinte resultado:
+
+```bash
+psql (12.3)
+Type "help" for help.
+
+meu_banco=#
+```
+
+A última linha indica que o psql está "na escuta" e que você pode fazer consultas SQL no espaço de trabalho mantido pelo psql.
+
+Experimente estes comandos:
+
+```bash
+meu_banco=> SELECT version();
+```
+
+```bash
+meu_banco=> SELECT current_date;
+```
+
+Eles devem retornar a versão do postgres e a data do servidor, respectivamente.
+
+Para sair do psql, digite:
+
+```bash
+meu_banco=> \q
+```
+> Nota: O psql possui seus próprios comandos, para obter mais informações, digite \h
