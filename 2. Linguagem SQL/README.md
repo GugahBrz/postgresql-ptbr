@@ -16,9 +16,9 @@ Essas tabelas são agrupadas em um banco de dados e um conjunto de bancos de dad
 Você pode criar uma nova tabela especificando o nome dela, seguido pelo nome das colunas e seus respectivos tipos:
 
 ```SQL
-CREATE TABLE usuario (
+CREATE TABLE usuarios (
     id            int,
-    apelido       varchar(80),    -- Um comentario daora
+    nome          varchar(80),    -- Um comentario daora
     dt_nasc       date            -- Outro comentario daora
 );
 ```
@@ -31,10 +31,29 @@ Como visto no exemplo, comentários podem ser feitos usando ```--```, todo o con
 Por fim, mas não menos importante, se não precisar mais de uma tabela, poderá excluí-la usando o seguinte comando:
 
 ```SQL
-DROP TABLE usuario;
+DROP TABLE usuarios;
 ```
 
 ## 2.4 Inserção de dados (INSERT)
+O comando ```INSERT``` é usado para preencher uma tabela com linhas:
+
+```SQL
+INSERT INTO usuarios VALUES (1, 'John Joe', '1997-02-26');
+```
+
+As constantes que não são valores numéricos simples geralmente devem estar entre aspas simples, como no exemplo.
+O tipo de data é um dos mais flexíveis e aceita diversos formatos, neste caso, usaremos o formato americano.
+
+Note que, essa sintaxe nos força a lembrar a ordem das colunas, bem como informar um valor para cada uma delas.
+Uma sintaxe alternativa permite listar explicitamente as colunas desejadas:
+
+```SQL
+INSERT INTO usuarios (id, nome)
+    VALUES (1, 'John Joe');
+```
+
+Muitos desenvolvedores consideram a segunda alternativa um estilo melhor do que depender de ordem implícita.
+
 ## 2.5 Consultas (SELECT)
 ## 2.6 Ligações (JOIN)
 ## 2.7 Funções de agregação
