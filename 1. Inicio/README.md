@@ -92,11 +92,11 @@ A última linha indica que o psql está "na escuta" e que você pode fazer consu
 Experimente estes comandos:
 
 ```bash
-meu_banco=> SELECT version();
+meu_banco=# SELECT version();
 ```
 
 ```bash
-meu_banco=> SELECT current_date;
+meu_banco=# SELECT current_date;
 ```
 
 Eles devem retornar a versão do postgres e a data do servidor, respectivamente.
@@ -104,6 +104,6 @@ Eles devem retornar a versão do postgres e a data do servidor, respectivamente.
 Para sair do psql, digite:
 
 ```bash
-meu_banco=> \q
+meu_banco=# \q
 ```
 > Nota: O psql possui seus próprios comandos, para obter mais informações, digite \h
