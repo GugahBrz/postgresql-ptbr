@@ -39,6 +39,8 @@ O comando ```INSERT``` é usado para preencher uma tabela com linhas:
 
 ```SQL
 INSERT INTO usuarios VALUES (1, 'John Joe', '1997-02-26');
+INSERT INTO usuarios VALUES (2, 'Yara Kazman', '1996-02-26');
+INSERT INTO usuarios VALUES (3, 'Gilles Riquier', '1995-02-26');
 ```
 
 As constantes que não são valores numéricos simples geralmente devem estar entre aspas simples, como no exemplo.
@@ -55,6 +57,99 @@ INSERT INTO usuarios (id, nome)
 Muitos desenvolvedores consideram a segunda alternativa um estilo melhor do que depender de ordem implícita.
 
 ## 2.5 Consultas (SELECT)
+Os valores de uma tabela podem ser consultados através de uma instrução chamada SELECT.
+Por exemplo, para consultar todas as linhas na tabela do usuário:
+
+```SQL
+SELECT * FROM usuarios;
+```
+
+O sinal ```*``` quer dizer "todas as colunas", trata-se de outra forma de escrever o comando a seguir:
+
+```SQL
+SELECT id, nome, dt_nasc FROM usuarios;
+```
+
+O resultado obtido deve ser algo como:
+
+```SQL
+ id |      nome      |   dt_nasc
+----+----------------+-----------
+ 1  | John Joe       | 1997-02-26
+ 2  | Yara Kazman    | 1996-02-26
+ 3  | Gilles Riquier | 1997-02-26
+
+(3 rows)
+```
+
+É possivel escrever expressões e/ou usar métodos SQL existentes, como ```count()```, por exemplo:
+
+```SQL
+SELECT count(id) AS count_usuarios FROM usuarios;
+```
+
+O resultado esperado é:
+
+```SQL
+ count_usuarios 
+---------------
+            3
+
+(1 row)
+```
+
+Observe como ```AS``` é usado para nomear a coluna gerada a partir do método count.
+
+É possivel adicionar condiçoes a consulta por meio da cláusula WHERE, ela é baseada em uma expressao booleana e somente as linhas que atenderem essa condiçao serao retornadas. Podemos ainda utilizar os operadores ```AND```, ```OR``` e ```NOT```para complementar, por exemplo:
+
+```SQL
+SELECT * FROM usuarios
+    WHERE id > 1 AND id <> 2;
+```
+    
+O resultado esperado é:
+
+```SQL
+ id |      nome      |   dt_nasc
+----+----------------+-----------
+ 3  | Gilles Riquier | 1997-02-26
+
+(1 row)
+```
+
+Você pode solicitar que os resultados de uma consulta sejam retornados em uma ordem específica:
+
+```SQL
+SELECT * FROM usuarios
+ORDER BY nome;
+```
+
+```SQL
+ id |      nome      |   dt_nasc
+----+----------------+-----------
+ 3  | Gilles Riquier | 1997-02-26
+ 1  | John Joe       | 1997-02-26
+ 2  | Yara Kazman    | 1996-02-26
+
+(3 rows)
+```
+
+E que as linhas duplicadas sejam removidas do resultado de uma consulta:
+
+```SQL
+SELECT DISTINCT dt_nasc
+    FROM usuarios;
+```
+
+```SQL
+     dt_nasc
+---------------
+ 1997-02-26
+ 1996-02-26
+
+(2 rows)
+```
+
 ## 2.6 Ligações (JOIN)
 ## 2.7 Funções de agregação
 ## 2.8 Edição (UPDATE)
