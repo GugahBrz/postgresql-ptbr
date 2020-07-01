@@ -57,8 +57,8 @@ INSERT INTO usuarios (id, nome)
 Muitos desenvolvedores consideram a segunda alternativa um estilo melhor do que depender de ordem implícita.
 
 ## 2.5 Consultas (SELECT)
-Os valores de uma tabela podem ser consultados através de uma instrução chamada SELECT.
-Por exemplo, para consultar todas as linhas na tabela do usuário:
+Os valores de uma tabela podem ser consultados através de uma instrução chamada ```SELECT```.
+Por exemplo, para consultar todas as linhas na tabela ```usuarios```:
 
 ```SQL
 SELECT * FROM usuarios;
@@ -100,7 +100,7 @@ O resultado esperado é:
 
 Observe como ```AS``` é usado para nomear a coluna gerada a partir do método count.
 
-É possivel adicionar condiçoes a consulta por meio da cláusula WHERE, ela é baseada em uma expressao booleana e somente as linhas que atenderem essa condiçao serao retornadas. Podemos ainda utilizar os operadores ```AND```, ```OR``` e ```NOT```para complementar, por exemplo:
+É possivel adicionar condiçoes a consulta por meio da cláusula ```WHERE```, ela é baseada em uma expressao booleana e somente as linhas que atenderem essa condiçao serao retornadas. Podemos ainda utilizar os operadores ```AND```, ```OR``` e ```NOT```para complementar, por exemplo:
 
 ```SQL
 SELECT * FROM usuarios
