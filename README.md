@@ -13,7 +13,6 @@ Este guia apresenta uma introdução ao PostgreSQL, conceitos de bancos de dados
     - [Inserção de dados (INSERT)](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-2/README.md#24-inser%C3%A7%C3%A3o-de-dados-insert)
     - [Consultas (SELECT)](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-2/README.md#25-consultas-select)
     - [Ligações (JOIN)](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-2/README.md#26-liga%C3%A7%C3%B5es-join)
-    - [Funções de agregação](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-2/README.md#27-fun%C3%A7%C3%B5es-de-agrega%C3%A7%C3%A3o)
     - [Edição (UPDATE)](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-2/README.md#28-edi%C3%A7%C3%A3o-update)
     - [Exclusão (DELETE)](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-2/README.md#29-exclus%C3%A3o-delete)
   - Avançado
