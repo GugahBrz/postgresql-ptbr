@@ -151,6 +151,37 @@ SELECT DISTINCT dt_nasc
 ```
 
 ## 2.6 Ligações (JOIN)
-## 2.7 Funções de agregação
-## 2.8 Edição (UPDATE)
-## 2.9 Exclusão (DELETE)
+### Preparando o ambiente
+Para abordar o tópico "ligações", criaremos uma segunda tabela chamada ```veículos```, na qual atribuiremos veículos de um determinado tipo aos usuários.
+
+```SQL
+CREATE TABLE veiculos (
+    id            int,
+    tipo          varchar(80),    -- carro, moto
+    dono          varchar(80)
+);
+```
+> Nota: Leia um pouco sobre [Enumerated Types](https://www.postgresql.org/docs/9.1/datatype-enum.html), poderia ser util no campo tipo.
+
+Em seguida, inserimos alguns registros:
+
+```SQL
+INSERT INTO veiculos VALUES (1, 'carro', 'John Joe');
+INSERT INTO veiculos VALUES (2, 'moto', 'Camille Rivard');
+INSERT INTO veiculos VALUES (3, 'carro', 'Delphine Chartier');
+```
+
+### INNER JOIN
+### LEFT JOIN
+### RIGHT JOIN
+### OUTER JOIN
+
+Vale ressaltar que ainda existem três outros tipos de ligação:
+- LEFT EXCLUDING JOIN
+- RIGHT EXCLUDING JOIN
+- OUTER EXCLUDING JOIN
+
+Apesar de serem utilizados com menor frequencia, vale a pena pesquisar um pouco a respeito.
+
+## 2.7 Edição (UPDATE)
+## 2.8 Exclusão (DELETE)
