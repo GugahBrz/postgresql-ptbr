@@ -151,8 +151,7 @@ SELECT DISTINCT dt_nasc
 ```
 
 ## 2.6 Ligações (JOIN)
-### Preparando o ambiente
-Para abordar o tópico "ligações", criaremos uma segunda tabela chamada ```veículos```, na qual atribuiremos veículos de um determinado tipo aos usuários.
+Neste tópico, criaremos uma segunda tabela chamada ```veículos```, na qual atribuiremos veículos de um determinado tipo aos usuários.
 
 ```SQL
 CREATE TABLE veiculos (
@@ -163,18 +162,94 @@ CREATE TABLE veiculos (
 ```
 > Nota: Leia um pouco sobre [Enumerated Types](https://www.postgresql.org/docs/9.1/datatype-enum.html), poderia ser util no campo tipo.
 
-Em seguida, inserimos alguns registros:
+Em seguida, vamos inserir alguns registros:
 
 ```SQL
 INSERT INTO veiculos VALUES (1, 'carro', 'John Joe');
 INSERT INTO veiculos VALUES (2, 'moto', 'Camille Rivard');
 INSERT INTO veiculos VALUES (3, 'carro', 'Delphine Chartier');
 ```
+Agora, podemos descobrir quais usuários do nosso sistema possuem (ou não) um veículo!
 
 ### INNER JOIN
+Provavelmente o método mais conhecido e utilizado, retorna somente os registros comuns às duas (ou mais) tabelas.
+
+```SQL
+SELECT usuarios.nome, veiculos.tipo
+FROM usuarios
+INNER JOIN veiculos
+    ON usuarios.nome = veiculos.dono
+```
+
+```SQL
+     nome      |    tipo
+---------------+-----------
+   John Joe    |   carro
+ 
+ (1 row)
+```
+
 ### LEFT JOIN
+Retorna todos os registros da tabela base (LEFT) e os registros comuns às duas (ou mais) tabelas.
+
+```SQL
+SELECT usuarios.nome, veiculos.tipo
+FROM usuarios
+LEFT JOIN veiculos
+    ON usuarios.nome = veiculos.dono
+```
+
+```SQL
+      nome       |    tipo
+-----------------+----------
+    John Joe     |   carro
+   Yara Kazman   |    NULL
+  Gilles Riquier |    NULL
+ 
+ (3 rows)
+```
+
 ### RIGHT JOIN
-### OUTER JOIN
+Retorna todos os registros das demais tabelas (RIGHT) e os registros comuns às duas (ou mais) tabelas.
+
+```SQL
+SELECT usuarios.nome, veiculos.tipo
+FROM usuarios
+RIGHT JOIN veiculos
+    ON usuarios.nome = veiculos.dono
+```
+
+```SQL
+      nome       |    tipo
+-----------------+----------
+    John Joe     |   carro
+      NULL       |    moto
+      NULL       |   carro
+ 
+ (3 rows)
+```
+
+### FULL OUTER JOIN
+Retorna todos os registros nas tabelas relacionadas, independentemente de registros comuns ou não.
+
+```SQL
+SELECT usuarios.nome, veiculos.tipo
+FROM usuarios
+FULL OUTER JOIN veiculos
+    ON usuarios.nome = veiculos.dono
+```
+
+```SQL
+      nome       |    tipo
+-----------------+----------
+    John Joe     |   carro
+   Yara Kazman   |    NULL
+  Gilles Riquier |    NULL
+      NULL       |    moto
+      NULL       |   carro
+ 
+ (5 rows)
+```
 
 Vale ressaltar que ainda existem três outros tipos de ligação:
 - LEFT EXCLUDING JOIN
