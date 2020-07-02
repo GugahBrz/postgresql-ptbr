@@ -290,7 +290,7 @@ INNER JOIN veiculos
 Agora supondo que John Joe foi atingido pela crise e precisou vender sua moto, podemos utilizar o comando ```DELETE``` para deletar o registro.
 
 ```SQL
-DELETE FROM veiculos WHERE done = 'John Joe';
+DELETE FROM veiculos WHERE dono = 'John Joe';
 ```
 > Nota: Se John Joe tivesse mais de um veículo, esse comando teria removido todos eles! Portanto, é recomendável usar id's ao invés de nomes.
 
