@@ -85,15 +85,15 @@ O resultado obtido deve ser algo como:
 É possivel escrever expressões e/ou usar métodos SQL existentes, como ```count()```, por exemplo:
 
 ```SQL
-SELECT count(id) AS count_usuarios FROM usuarios;
+SELECT count(id) AS count FROM usuarios;
 ```
 
 O resultado esperado é:
 
 ```SQL
- count_usuarios 
----------------
-            3
+ count
+------
+     3
 
 (1 row)
 ```
@@ -142,8 +142,8 @@ SELECT DISTINCT dt_nasc
 ```
 
 ```SQL
-     dt_nasc
----------------
+    dt_nasc
+-----------
  1997-02-26
  1996-02-26
 
