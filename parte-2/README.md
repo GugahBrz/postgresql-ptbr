@@ -104,7 +104,7 @@ Observe como ```AS``` é usado para nomear a coluna gerada a partir do método c
 
 ```SQL
 SELECT * FROM usuarios
-    WHERE id > 1 AND id <> 2;
+WHERE id > 1 AND id <> 2;
 ```
     
 O resultado esperado é:
@@ -176,7 +176,7 @@ Provavelmente o método mais conhecido e utilizado, retorna somente os registros
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-FROM usuarios
+    FROM usuarios
 INNER JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -194,7 +194,7 @@ Retorna todos os registros da tabela base (LEFT) e os registros comuns às duas 
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-FROM usuarios
+    FROM usuarios
 LEFT JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -214,7 +214,7 @@ Retorna todos os registros das demais tabelas (RIGHT) e os registros comuns às 
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-FROM usuarios
+    FROM usuarios
 RIGHT JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -234,7 +234,7 @@ Retorna todos os registros nas tabelas relacionadas, independentemente de regist
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-FROM usuarios
+    FROM usuarios
 FULL OUTER JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -265,7 +265,7 @@ Suponha que John Joe trocou seu carro por uma moto, podemos corrigir os dados da
 
 ```SQL
 UPDATE veiculos
-    SET tipo = 'moto'
+SET tipo = 'moto'
     WHERE dono = 'John Joe'
 ```
 
@@ -273,7 +273,7 @@ Se tudo occorreu bem:
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-FROM usuarios
+    FROM usuarios
 INNER JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
