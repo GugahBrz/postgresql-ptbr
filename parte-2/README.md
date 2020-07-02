@@ -256,7 +256,34 @@ Vale ressaltar que ainda existem três outros tipos de ligação:
 - RIGHT EXCLUDING JOIN
 - OUTER EXCLUDING JOIN
 
-Apesar de serem utilizados com menor frequencia, vale a pena pesquisar um pouco a respeito.
+Embora sejam usados com menos frequência, vale a pena pesquisar um pouco sobre isso.
 
 ## 2.7 Edição (UPDATE)
+É possivel atualizar registros usando o comando ```UPDATE```.
+
+Suponha que John Joe trocou seu carro por uma moto, podemos corrigir os dados da seguinte maneira:
+
+```SQL
+UPDATE veiculos
+    SET tipo = 'moto'
+    WHERE dono = 'John Joe'
+```
+
+Se tudo occorreu bem:
+
+```SQL
+SELECT usuarios.nome, veiculos.tipo
+FROM usuarios
+INNER JOIN veiculos
+    ON usuarios.nome = veiculos.dono
+```
+
+```SQL
+     nome      |    tipo
+---------------+-----------
+   John Joe    |    moto
+ 
+ (1 row)
+```
+
 ## 2.8 Exclusão (DELETE)
