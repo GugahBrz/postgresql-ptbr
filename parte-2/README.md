@@ -138,7 +138,7 @@ E que as linhas duplicadas sejam removidas do resultado de uma consulta:
 
 ```SQL
 SELECT DISTINCT dt_nasc
-    FROM usuarios;
+FROM usuarios;
 ```
 
 ```SQL
@@ -176,7 +176,7 @@ Provavelmente o método mais conhecido e utilizado, retorna somente os registros
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-    FROM usuarios
+FROM usuarios
 INNER JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -194,7 +194,7 @@ Retorna todos os registros da tabela base (LEFT) e os registros comuns às duas 
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-    FROM usuarios
+FROM usuarios
 LEFT JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -214,7 +214,7 @@ Retorna todos os registros das demais tabelas (RIGHT) e os registros comuns às 
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-    FROM usuarios
+FROM usuarios
 RIGHT JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -234,7 +234,7 @@ Retorna todos os registros nas tabelas relacionadas, independentemente de regist
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-    FROM usuarios
+FROM usuarios
 FULL OUTER JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -273,7 +273,7 @@ Se tudo occorreu bem:
 
 ```SQL
 SELECT usuarios.nome, veiculos.tipo
-    FROM usuarios
+FROM usuarios
 INNER JOIN veiculos
     ON usuarios.nome = veiculos.dono
 ```
@@ -287,3 +287,11 @@ INNER JOIN veiculos
 ```
 
 ## 2.8 Exclusão (DELETE)
+Agora supondo que John Joe foi atingido pela crise e precisou vender sua moto, podemos utilizar o comando ```DELETE``` para deletar o registro.
+
+```SQL
+DELETE FROM veiculos WHERE done = 'John Joe';
+```
+> Nota: Se John Joe tivesse mais de um veículo, esse comando teria removido todos eles! Portanto, é recomendável usar id's ao invés de nomes.
+
+> Nota (2): Nenhum tipo de confirmação sera solicitada antes de executar uma query, pense com cuidado antes de executar um comando! 
