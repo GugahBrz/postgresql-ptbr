@@ -84,10 +84,43 @@ ERROR:  insert or update on table "veiculos" violates foreign key constraint "ve
 DETAIL : Key (usuario)=(a) is not present in table "usuarios".
 ```
 
-Ou seja, o usuário/dono com id 999 não foi encontrado.
+Ou seja, o usuário/dono com ```id = 999``` não foi encontrado.
 
 > Nota: Chaves estrangeiras é um tópico extremamente abordado no dia a dia de quem trabalha com SQL, este guia fornece uma visão muito superficial do assunto, sugiro que você pesquise mais sobre.
 
 ## 3.4 Transações
+As transações são um conceito fundamental de banco de dados. Uma transação combina vários estágios em uma única operação de "tudo ou nada". Ou seja, se ocorrer uma falha que impeça o sucesso de um ou mais estágios da transação, nenhuma alteração será aplicada.
+
+Em um contexto real, é comum que dezenas de operações sejam executadas durante a criação/edição/exclusão de um registro, e um erro, por menor que seja, durante a execução de uma dessas operações é suficiente para gerar diversas inconsistências na base de dados, portanto, mediante um erro, nosso banco volta ao estado inicial.
+
+No PostgreSQL, uma transação é declarada envolvendo uma operação SQL com os comandos ```BEGIN``` e ```COMMIT```:
+
+```SQL
+BEGIN;
+UPDATE tabela SET coluna = valor
+    WHERE id = 1;
+-- etc etc
+COMMIT;
+```
+> Nota: Isso é feito automaticamente pelo PostgreSQL! Portanto, a menos que você queira personalizar suas transações, não há necessidade de especificá-las.
+
+É possivel quebrar uma transaçoes em varias partes usando os comandos ```SAVEPOINT``` e ```ROLLBACK TO```, neste caso, criamos "checkpoints" e retornamos a eles 
+
+```SQL
+BEGIN;
+UPDATE tabela SET coluna = valor
+    WHERE id = 1;
+SAVEPOINT meu_checkpoint;
+UPDATE tabela SET coluna = valor
+    WHERE id = 2;
+-- ops, algo deu errado...
+ROLLBACK TO meu_checkpoint;
+UPDATE tabela SET coluna = valor
+    WHERE id = 3;
+COMMIT;
+```
+
+> Nota: Mais uma vez, assunto muito importante, sugiro que você pesquise mais sobre.
+
 ## 3.5 Funções de janela
 ## 3.6 Herança
