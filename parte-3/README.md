@@ -121,5 +121,3 @@ COMMIT;
 ```
 
 > Nota: Mais uma vez, assunto muito importante, sugiro que você pesquise mais a respeito.
-
-## 3.5 Herança
