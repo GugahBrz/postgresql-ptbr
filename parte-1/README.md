@@ -87,7 +87,7 @@ Type "help" for help.
 meu_banco=#
 ```
 
-A última linha indica que o psql está "na escuta" e que você pode fazer consultas SQL no espaço de trabalho mantido pelo psql.
+A última linha indica que o psql está "na escuta" e que você pode executar comandos SQL no espaço de trabalho mantido pelo psql.
 
 Experimente estes comandos:
 
