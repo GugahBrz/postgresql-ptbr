@@ -78,7 +78,8 @@ Se tentarmos adicionar um veículo referenciando um usuário inexistente, SQL re
 
 ```SQL
 INSERT INTO veiculos VALUES (2, 'carro', 999);
-
+```
+```bash
 ERROR:  insert or update on table "veiculos" violates foreign key constraint "veiculos_usuario_fkey"
 DETAIL : Key (usuario)=(a) is not present in table "usuarios".
 ```
