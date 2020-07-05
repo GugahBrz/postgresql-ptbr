@@ -20,7 +20,6 @@ Este guia apresenta uma introdução ao PostgreSQL, conceitos de bancos de dados
     - [3.2 Visualizações](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-3/README.md#32-visualiza%C3%A7%C3%B5es)
     - [3.3 Chaves estrangeiras](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-3/README.md#33-chaves-estrangeiras)
     - [3.4 Transações](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-3/README.md#33-chaves-estrangeiras)
-    - [3.5 Funções de janela](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-3/README.md#33-chaves-estrangeiras)
     - [3.6 Herança](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-3/README.md#33-chaves-estrangeiras)
   - [4 Conclusão](https://github.com/GugahBrz/postgresql-ptbr/blob/master/parte-4)
 
