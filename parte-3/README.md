@@ -104,7 +104,7 @@ COMMIT;
 ```
 > Nota: Isso é feito automaticamente pelo PostgreSQL! Portanto, a menos que você queira personalizar suas transações, não há necessidade de especificá-las.
 
-É possivel quebrar uma transaçoes em varias partes usando os comandos ```SAVEPOINT``` e ```ROLLBACK TO```, neste caso, criamos "checkpoints" e retornamos a eles 
+É possivel quebrar uma transação em varias partes usando os comandos ```SAVEPOINT``` e ```ROLLBACK TO```, neste caso, criamos um "checkpoint" e retornamos até ele:
 
 ```SQL
 BEGIN;
